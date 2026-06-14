@@ -1,0 +1,43 @@
+/* === TEMA ROMANTIS === */
+:root {
+  --primary: #d4a0a0;
+  --primary-dark: #b56576;
+  --primary-light: #f2d5d5;
+  --accent: #c98b8b;
+  --bg: #fdf6f0;
+  --bg-card: rgba(255, 245, 238, 0.9);
+  --text: #4a3b3b;
+  --text-soft: #6b5b5b;
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Raleway', sans-serif;
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --radius: 24px;
+}
+
+/* === TEMA ELEGAN === */
+[data-theme="elegant"] {
+  --primary: #9b2226;
+  --primary-dark: #6a040f;
+  --primary-light: #f8d7da;
+  --accent: #b23b3b;
+  --bg: #fff5f5;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --text: #3e2723;
+  --text-soft: #5d4037;
+  --font-title: 'Cormorant Garamond', serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+/* === TEMA PASTEL === */
+[data-theme="pastel"] {
+  --primary: #b8c9d4;
+  --primary-dark: #8fa3b3;
+  --primary-light: #e3ecf2;
+  --accent: #c4a3a3;
+  --bg: #faf9f6;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --text: #2c3e4e;
+  --text-soft: #5a6c7d;
+  --font-title: 'Lora', serif;
+  --font-body: 'Quicksand', sans-serif;
+}

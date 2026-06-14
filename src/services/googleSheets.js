@@ -1,7 +1,7 @@
 export async function submitRSVP(url, data) {
   const response = await fetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'text/plain' }, // ✅ ubah ke text/plain
     body: JSON.stringify(data),
   });
   if (!response.ok) throw new Error('Network error');
@@ -11,7 +11,7 @@ export async function submitRSVP(url, data) {
 export async function submitCheckin(url, data) {
   const response = await fetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'text/plain' },
     body: JSON.stringify(data),
   });
   if (!response.ok) throw new Error('Network error');

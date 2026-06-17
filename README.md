@@ -37,7 +37,7 @@ Undangan pernikahan digital premium dengan fitur lengkap: amplop digital, RSVP, 
 
 \`\`\`bash
 # Clone repository
-git clone https://github.com/username/digital-invitation.git
+git clone https://github.com/k-anwar/digital-invitation.git
 cd digital-invitation
 
 # Install dependencies

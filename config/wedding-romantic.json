@@ -1,25 +1,58 @@
 {
   "slug": "wedding-romantic",
-  "bride": "Dina",
-  "groom": "Andi",
-  "fullNames": "Dina & Andi",
+  "bride": "Rizza",
+  "groom": "Anwar",
+  "fullNames": "Rizza & Anwar",
   "eventType": "wedding",
   "eventDate": "2026-08-20T09:00:00",
-  "location": "Gedung Graha Lestari, Jakarta",
-  "address": "Jl. Mawar No. 12, Jakarta Pusat",
-  "mapsUrl": "https://maps.google.com/?q=Gedung+Graha+Lestari+Jakarta",
+  "location": "Rumah Mempelai Wanita",
+  "address": "Gg.Seruni No. 84, Ds.Pesucen Blok 4, Petarukan, Pemalang",
+  "mapsUrl": "https://maps.app.goo.gl/yAQacCtoPDnV5wP57",
+  "mapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.2329466652693!2d109.49343345162906!3d-6.898761969051582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fd99b3724cc3d%3A0x4725a07569ae6734!2sMusholla%20Baitul%20Rokhim!5e0!3m2!1sid!2sid!4v1781663403768!5m2!1sid!2sid",
   "theme": "romantic",
   "googleScriptUrl": "https://script.google.com/macros/s/AKfycbw-xIdmRE_oQjVFwpoUZ1M46AzNVaulW17apbjISXwIZKZ_5VFJoQXeoHDlOAwVrFkj/exec",
   "checkinScriptUrl": "",
-  "bridePhoto": "https://i.pravatar.cc/150?img=47",
-  "groomPhoto": "https://i.pravatar.cc/150?img=12",
+  "bridePhoto": "assets/anwar-rizza/photo/rizza.jpeg",
+  "groomPhoto": "assets/anwar-rizza/photo/anwar.jpeg",
   "gallery": [
-    "https://images.unsplash.com/photo-1519741497674-611481863552?w=400",
-    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400",
-    "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=400",
-    "https://images.unsplash.com/photo-1507504031003-b417219a0e0f?w=400",
-    "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=400"
+    "assets/anwar-rizza/photo/gallery1.jpeg",
+    "assets/anwar-rizza/photo/gallery2.jpeg",
+    "assets/anwar-rizza/photo/gallery3.jpg",
+    "assets/anwar-rizza/photo/gallery4.jpg",
+    "assets/anwar-rizza/photo/gallery5.jpg",
+    "assets/anwar-rizza/photo/gallery6.jpg"
   ],
-  "music": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-  "envelopeSound": ""
+  "music": "assets/anwar-rizza/music/music.mp3",
+  "envelopeSound": "",
+  "dressCode": {
+    "color": "Navy Blue & Dusty Pink",
+    "description": "Formal / Semi Formal"
+  },
+  "loveStory": [
+    {
+      "date": "Januari 2020",
+      "title": "Pertama Bertemu",
+      "description": "Kami pertama kali bertemu di sebuah coffee shop saat hujan turun. Rizza yang kebetulan sendirian di meja sebelah menawarkan tempat duduk."
+    },
+    {
+      "date": "Maret 2021",
+      "title": "Mulai Pacaran",
+      "description": "Setelah setahun berteman, Anwar memberanikan diri untuk menyatakan cinta di tempat yang sama saat pertama bertemu."
+    },
+    {
+      "date": "Desember 2025",
+      "title": "Lamaran",
+      "description": "Anwar melamar Rizza di hadapan kedua keluarga dengan penuh haru dan bahagia. Tepat di malam tahun baru!"
+    },
+    {
+      "date": "Agustus 2026",
+      "title": "Hari Bahagia",
+      "description": "Kami akan mengucap janji suci di hadapan Tuhan dan para tamu undangan. Hari yang paling kami tunggu!"
+    }
+  ],
+  "brideParents": "Bpk. Dalal & Ibu Anisatun",
+  "groomParents": "Bpk. Nuridin & Ibu Priyati",
+  "openingQuote": "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. (QS. Ar-Rum: 21)",
+  "instagram": "rizza.anwar",
+  "contactPerson": "0895384947265"
 }

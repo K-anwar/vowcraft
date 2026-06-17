@@ -1,5 +1,5 @@
 {
-  "slug": "wedding-romantic",
+  "slug": "wedding-anwar-rizza",
   "bride": "Rizza",
   "groom": "Anwar",
   "fullNames": "Rizza & Anwar",
@@ -9,7 +9,7 @@
   "address": "Gg.Seruni No. 84, Ds.Pesucen Blok 4, Petarukan, Pemalang",
   "mapsUrl": "https://maps.app.goo.gl/yAQacCtoPDnV5wP57",
   "mapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.2329466652693!2d109.49343345162906!3d-6.898761969051582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fd99b3724cc3d%3A0x4725a07569ae6734!2sMusholla%20Baitul%20Rokhim!5e0!3m2!1sid!2sid!4v1781663403768!5m2!1sid!2sid",
-  "theme": "romantic",
+  "theme": "islami",
   "googleScriptUrl": "https://script.google.com/macros/s/AKfycbw-xIdmRE_oQjVFwpoUZ1M46AzNVaulW17apbjISXwIZKZ_5VFJoQXeoHDlOAwVrFkj/exec",
   "checkinScriptUrl": "",
   "bridePhoto": "assets/anwar-rizza/photo/rizza.jpeg",
@@ -59,28 +59,64 @@
     {
       "type": "Transfer Bank",
       "icon": "🏦",
+      "logo": "assets/logos/bca.svg",
       "bank": "Bank BCA",
       "number": "3540196012",
       "name": "Khoirul Anwar"
     },
     {
-      "type": "E-Wallet (DANA)",
-      "icon": "📱",
-      "bank": "DANA",
+      "type": "Transfer Bank",
+      "icon": "🏦",
+      "logo": "assets/logos/bri.svg",
+      "bank": "Bank BRI",
+      "number": "379301051428538",
+      "name": "Rizza Lutfi Khasanah"
+    },
+    {
+      "type": "Transfer Bank",
+      "icon": "🏦",
+      "logo": "assets/logos/mandiri.svg",
+      "bank": "Bank Mandiri",
+      "number": "1360031676460",
+      "name": "Rizza Lutfi Khasanah"
+    },
+    {
+      "type": "E-Wallet",
+      "icon": "🟢",
+      "logo": "assets/logos/gopay.svg",
+      "bank": "GoPay",
       "number": "0895384947265",
       "name": "khoirul anwar"
     },
     {
-      "type": "E-Wallet (OVO)",
-      "icon": "💳",
+      "type": "E-Wallet",
+      "icon": "🟢",
+      "logo": "assets/logos/ovo.svg",
       "bank": "OVO",
       "number": "0895384947265",
       "name": "khoirul anwar"
     },
     {
-      "type": "E-Wallet (GoPay)",
+      "type": "E-Wallet",
       "icon": "🟢",
-      "bank": "GoPay",
+      "logo": "assets/logos/linkaja.svg",
+      "bank": "LinkAja",
+      "number": "0895384947265",
+      "name": "khoirul anwar"
+    },
+    {
+      "type": "E-Wallet",
+      "icon": "🟢",
+      "logo": "assets/logos/dana.svg",
+      "bank": "Dana",
+      "number": "0895384947265",
+      "name": "khoirul anwar"
+    },
+    {
+      "type": "E-Wallet",
+      "icon": "🟢",
+      "logo": "assets/logos/spay.svg",
+      "bank": "ShopeePay",
       "number": "0895384947265",
       "name": "khoirul anwar"
     },

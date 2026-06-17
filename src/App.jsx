@@ -5,6 +5,7 @@ import InvitationPage from './pages/InvitationPage';
 import RSVPPage from './pages/RSVPPage';
 import CheckinPage from './pages/CheckinPage';
 import LandingPage from './pages/LandingPage';
+import AdminPage from './pages/AdminPage'; // ← Tambahkan
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/:slug/invitation" element={<InvitationPage />} />
         <Route path="/:slug/rsvp" element={<RSVPPage />} />
         <Route path="/:slug/checkin" element={<CheckinPage />} />
+        <Route path="/:slug/admin" element={<AdminPage />} /> {/* ← Tambahkan */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </HashRouter>

@@ -1,6 +1,7 @@
 import { useParams, useSearchParams } from 'react-router-dom';
 import useCustomerConfig from '../hooks/useCustomerConfig';
 import RSVPForm from '../components/RSVPForm';
+import Ornament from '../components/Ornament';
 
 export default function RSVPPage() {
   const { slug } = useParams();
@@ -13,10 +14,11 @@ export default function RSVPPage() {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center px-4 py-12"
+      className="min-h-screen flex items-center justify-center px-4 py-12 relative"
       style={{ backgroundColor: 'var(--bg)' }}
     >
-      <div className="w-full max-w-md">
+      <Ornament />
+      <div className="w-full max-w-md relative z-10">
         <RSVPForm guest={guest} slug={slug} googleScriptUrl={config.googleScriptUrl} />
       </div>
     </div>

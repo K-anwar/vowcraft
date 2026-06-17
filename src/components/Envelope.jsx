@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Confetti from './Confetti';
+import Ornament from './Ornament';
 
 export default function Envelope({ config, guest, children, onOpenInvitation }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,12 +8,10 @@ export default function Envelope({ config, guest, children, onOpenInvitation }) 
   const audioRef = useRef(null);
   const baseUrl = import.meta.env.BASE_URL;
 
-  // Setup audio source
   const audioSrc = config?.music?.startsWith('http') 
     ? config.music 
     : `${baseUrl}${config?.music?.replace(/^\.\//, '').replace(/^\//, '') || ''}`;
 
-  // Inisialisasi audio
   useEffect(() => {
     if (audioSrc) {
       audioRef.current = new Audio(audioSrc);
@@ -27,19 +26,16 @@ export default function Envelope({ config, guest, children, onOpenInvitation }) 
     };
   }, [audioSrc]);
 
-  // Fungsi buka amplop
   const handleOpen = () => {
     if (isOpen) return;
     setIsOpen(true);
 
-    // Putar musik otomatis saat amplop dibuka
     if (audioRef.current) {
       audioRef.current.play().catch((err) => {
-        console.log('⚠️ Autoplay diblokir browser, user perlu interaksi');
+        console.log('⚠️ Autoplay diblokir browser');
       });
     }
 
-    // Tunda kemunculan konten sampai animasi flap selesai (600ms)
     setTimeout(() => {
       setShowContent(true);
     }, 600);
@@ -53,15 +49,14 @@ export default function Envelope({ config, guest, children, onOpenInvitation }) 
         fontFamily: 'var(--font-body)',
       }}
     >
-      {/* Dekorasi */}
-      <div className="absolute top-10 left-10 opacity-20 text-9xl select-none">🌸</div>
-      <div className="absolute bottom-10 right-10 opacity-20 text-9xl select-none">🌹</div>
+      {/* Ornamen tema */}
+      <Ornament />
 
       {/* Confetti */}
       <Confetti active={isOpen} />
 
       {/* Container amplop */}
-      <div className="relative w-full max-w-md mx-auto" style={{ perspective: '1200px' }}>
+      <div className="relative w-full max-w-md mx-auto z-10" style={{ perspective: '1200px' }}>
         {/* Badan amplop */}
         <div
           className="relative w-full rounded-2xl shadow-2xl overflow-hidden"
@@ -71,10 +66,13 @@ export default function Envelope({ config, guest, children, onOpenInvitation }) 
             boxShadow: 'var(--shadow), 0 15px 40px rgba(0,0,0,0.2)',
           }}
         >
-          {/* Ornamen */}
+          {/* Ornamen border */}
           <div
-            className="absolute inset-3 border-2 border-dashed rounded-xl opacity-30"
-            style={{ borderColor: 'var(--primary)' }}
+            className="absolute inset-3 border-2 rounded-xl opacity-30"
+            style={{ 
+              borderColor: 'var(--primary)',
+              borderStyle: 'var(--border-style, dashed)'
+            }}
           ></div>
 
           {/* Isi amplop */}

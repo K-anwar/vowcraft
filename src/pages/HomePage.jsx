@@ -47,21 +47,18 @@ export default function HomePage() {
     <div className="text-center space-y-6">
       <LoadingScreen />
       
-      {/* Foto Pengantin di dalam amplop */}
       {(bridePhotoUrl || groomPhotoUrl) && (
         <div className="flex justify-center items-center gap-3">
           {bridePhotoUrl && (
             <div className="w-20 h-20 rounded-full overflow-hidden border-2 shadow-md"
-              style={{ borderColor: 'var(--primary-light)' }}
-            >
-              <img src={bridePhotoUrl} alt={config.bride} className="w-full h-full object-cover" loading="lazy" decoding="async" onError={(e) => { e.target.style.display = 'none'; }} />
+              style={{ borderColor: 'var(--primary-light)' }}>
+              <img src={bridePhotoUrl} alt={config.bride} className="w-full h-full object-cover" />
             </div>
           )}
           <div className="text-xl text-pink-400">&</div>
           {groomPhotoUrl && (
             <div className="w-20 h-20 rounded-full overflow-hidden border-2 shadow-md"
-              style={{ borderColor: 'var(--primary-light)' }}
-            >
+              style={{ borderColor: 'var(--primary-light)' }}>
               <img src={groomPhotoUrl} alt={config.groom} className="w-full h-full object-cover" />
             </div>
           )}

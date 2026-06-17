@@ -3,6 +3,7 @@ import { useState } from 'react';
 export default function WeddingGift({ giftConfig }) {
   const [selected, setSelected] = useState(null);
   const [copied, setCopied] = useState(false);
+  const baseUrl = import.meta.env.BASE_URL;
 
   if (!giftConfig || giftConfig.length === 0) return null;
 
@@ -13,6 +14,8 @@ export default function WeddingGift({ giftConfig }) {
     });
   };
 
+  const isAddress = selected?.type === 'Alamat Rumah';
+
   return (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold text-center mb-8"
@@ -20,42 +23,79 @@ export default function WeddingGift({ giftConfig }) {
         🎁 Wedding Gift
       </h2>
 
+      {/* Grid pilihan gift */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {giftConfig.map((gift, index) => (
           <button
             key={index}
             onClick={() => setSelected(gift)}
-            className="p-4 rounded-2xl text-center transition-all hover:scale-105 shadow-md"
+            className="p-4 rounded-2xl text-center transition-all hover:scale-105 shadow-md flex flex-col items-center gap-2"
             style={{ 
               backgroundColor: 'var(--bg-card)', 
               boxShadow: 'var(--shadow)',
               border: selected?.type === gift.type ? '2px solid var(--primary)' : '2px solid transparent'
             }}
           >
-            <span className="text-3xl mb-2 block">{gift.icon}</span>
-            <span className="text-sm font-semibold">{gift.type}</span>
+            {gift.logo ? (
+              <img 
+                src={gift.logo.startsWith('http') ? gift.logo : `${baseUrl}${gift.logo.replace(/^\.\//, '').replace(/^\//, '')}`}
+                alt={gift.bank || gift.type}
+                className="w-12 h-12 object-contain"
+                onError={(e) => { e.target.style.display = 'none'; }}
+              />
+            ) : (
+              <span className="text-3xl">{gift.icon || '💝'}</span>
+            )}
+            <span className="text-xs font-semibold">{gift.type}</span>
           </button>
         ))}
       </div>
 
+      {/* Detail gift yang dipilih */}
       {selected && (
         <div className="mt-6 p-6 rounded-2xl text-center animate-fadeIn"
           style={{ backgroundColor: 'var(--bg-card)', boxShadow: 'var(--shadow)' }}>
-          <p className="text-2xl mb-3">{selected.icon}</p>
-          <p className="text-lg font-semibold mb-4" style={{ color: 'var(--primary-dark)' }}>
+          
+          {/* Logo/Icon besar */}
+          <div className="mb-4">
+            {selected.logo ? (
+              <img 
+                src={selected.logo.startsWith('http') ? selected.logo : `${baseUrl}${selected.logo.replace(/^\.\//, '').replace(/^\//, '')}`}
+                alt={selected.bank || selected.type}
+                className="w-20 h-20 mx-auto object-contain"
+                onError={(e) => { e.target.style.display = 'none'; }}
+              />
+            ) : (
+              <span className="text-5xl">{selected.icon || '💝'}</span>
+            )}
+          </div>
+
+          <p className="text-lg font-semibold mb-2" style={{ color: 'var(--primary-dark)' }}>
             {selected.type}
           </p>
           
-          {/* Nomor Rekening */}
+          {selected.bank && (
+            <p className="text-sm font-medium opacity-70 mb-3">{selected.bank}</p>
+          )}
+          
+          {/* Nomor Rekening / Alamat */}
           <div className="space-y-3 mb-4">
-            <p className="text-xs uppercase tracking-wider opacity-70">No. Rekening</p>
+            {/* Label: "No. Rekening" untuk bank, "Alamat" untuk alamat rumah */}
+            <p className="text-xs uppercase tracking-wider opacity-70">
+              {isAddress ? 'Alamat' : 'No. Rekening'}
+            </p>
+            
             <div className="flex items-center justify-center gap-2 flex-wrap">
-              <p className="text-xl font-mono font-bold tracking-wider select-all">
+              <p className={`tracking-wider select-all bg-gray-50 px-4 py-2 rounded-lg ${
+                isAddress ? 'text-base font-normal' : 'text-xl font-mono font-bold'
+              }`}>
                 {selected.number}
               </p>
+              
+              {/* Tombol salin tetap ada untuk semua tipe */}
               <button
                 onClick={() => handleCopy(selected.number)}
-                className="px-3 py-1 rounded-full text-sm text-white transition hover:opacity-80"
+                className="px-4 py-2 rounded-full text-sm text-white transition hover:opacity-80 flex items-center gap-1"
                 style={{ backgroundColor: 'var(--primary)' }}
               >
                 {copied ? '✅ Tersalin' : '📋 Salin'}
@@ -63,9 +103,11 @@ export default function WeddingGift({ giftConfig }) {
             </div>
           </div>
 
-          <p className="text-sm font-semibold mt-2">a.n. {selected.name}</p>
-          {selected.bank && (
-            <p className="text-xs opacity-70 mt-1">{selected.bank}</p>
+          {/* Nama penerima - selalu pakai a.n. */}
+          {selected.name && (
+            <p className="text-sm font-semibold mt-2">
+              a.n. {selected.name}
+            </p>
           )}
         </div>
       )}
@@ -74,6 +116,16 @@ export default function WeddingGift({ giftConfig }) {
         Doa restu Anda merupakan karunia yang sangat berarti bagi kami.
         {selected && ' Terima kasih atas kebaikan hati Anda.'}
       </p>
+
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out;
+        }
+      `}</style>
     </div>
   );
 }

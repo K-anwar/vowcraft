@@ -1,4 +1,10 @@
-:root {
+/* ============================================
+   8 TEMA PREMIUM UNDANGAN PERNIKAHAN
+   ============================================ */
+
+/* === 1. TEMA ROMANTIS (DEFAULT) === */
+:root,
+[data-theme="romantic"] {
   --primary: #d4a0a0;
   --primary-dark: #b56576;
   --primary-light: #f2d5d5;
@@ -11,8 +17,11 @@
   --font-body: 'Raleway', sans-serif;
   --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   --radius: 24px;
+  --border-style: dashed;
+  --ornament: '🌸';
 }
 
+/* === 2. TEMA ELEGAN === */
 [data-theme="elegant"] {
   --primary: #9b2226;
   --primary-dark: #6a040f;
@@ -24,8 +33,31 @@
   --text-soft: #5d4037;
   --font-title: 'Cormorant Garamond', serif;
   --font-body: 'Montserrat', sans-serif;
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  --radius: 16px;
+  --border-style: solid;
+  --ornament: '🌹';
 }
 
+/* === 3. TEMA ISLAMI (GREEN & GOLD) === */
+[data-theme="islami"] {
+  --primary: #1b5e20;
+  --primary-dark: #0d3b0f;
+  --primary-light: #c8e6c9;
+  --accent: #d4a853;
+  --bg: #fafdf6;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --text: #2e3b2e;
+  --text-soft: #5a6b5a;
+  --font-title: 'Amiri', serif;
+  --font-body: 'Poppins', sans-serif;
+  --shadow: 0 15px 30px rgba(27, 94, 32, 0.1);
+  --radius: 20px;
+  --border-style: solid;
+  --ornament: '☪️';
+}
+
+/* === 4. TEMA PASTEL === */
 [data-theme="pastel"] {
   --primary: #b8c9d4;
   --primary-dark: #8fa3b3;
@@ -37,4 +69,80 @@
   --text-soft: #5a6c7d;
   --font-title: 'Lora', serif;
   --font-body: 'Quicksand', sans-serif;
+  --shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+  --radius: 28px;
+  --border-style: solid;
+  --ornament: '🕊️';
+}
+
+/* === 5. TEMA RUSTIC (EARTHY) === */
+[data-theme="rustic"] {
+  --primary: #8b6914;
+  --primary-dark: #5c4408;
+  --primary-light: #f5e6c8;
+  --accent: #c4975a;
+  --bg: #fef9f0;
+  --bg-card: rgba(255, 250, 240, 0.95);
+  --text: #4a3525;
+  --text-soft: #6b5540;
+  --font-title: 'Lora', serif;
+  --font-body: 'Open Sans', sans-serif;
+  --shadow: 0 20px 40px rgba(139, 105, 20, 0.1);
+  --radius: 12px;
+  --border-style: solid;
+  --ornament: '🌿';
+}
+
+/* === 6. TEMA GLAMOUR (BLACK & GOLD) === */
+[data-theme="glamour"] {
+  --primary: #c9a84c;
+  --primary-dark: #8b7329;
+  --primary-light: #f8f0d5;
+  --accent: #d4af37;
+  --bg: #1a1a1a;
+  --bg-card: rgba(30, 30, 30, 0.95);
+  --text: #f0e6d3;
+  --text-soft: #c0b090;
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Raleway', sans-serif;
+  --shadow: 0 20px 40px rgba(201, 168, 76, 0.15);
+  --radius: 8px;
+  --border-style: solid;
+  --ornament: '✨';
+}
+
+/* === 7. TEMA MINIMALIS === */
+[data-theme="minimalis"] {
+  --primary: #6b7280;
+  --primary-dark: #374151;
+  --primary-light: #e5e7eb;
+  --accent: #9ca3af;
+  --bg: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.98);
+  --text: #1f2937;
+  --text-soft: #6b7280;
+  --font-title: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  --radius: 4px;
+  --border-style: solid;
+  --ornament: '🤍';
+}
+
+/* === 8. TEMA TROPICAL === */
+[data-theme="tropical"] {
+  --primary: #e85d75;
+  --primary-dark: #c0392b;
+  --primary-light: #fce4e8;
+  --accent: #f39c12;
+  --bg: #fffaf5;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --text: #2c3e50;
+  --text-soft: #5d6d7e;
+  --font-title: 'Pacifico', cursive;
+  --font-body: 'Nunito', sans-serif;
+  --shadow: 0 15px 30px rgba(232, 93, 117, 0.12);
+  --radius: 32px;
+  --border-style: solid;
+  --ornament: '🌺';
 }

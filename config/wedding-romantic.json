@@ -54,5 +54,42 @@
   "groomParents": "Bpk. Nuridin & Ibu Priyati",
   "openingQuote": "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. (QS. Ar-Rum: 21)",
   "instagram": "rizza.anwar",
-  "contactPerson": "0895384947265"
+  "contactPerson": "0895384947265",
+  "weddingGift": [
+    {
+      "type": "Transfer Bank",
+      "icon": "🏦",
+      "bank": "Bank BCA",
+      "number": "3540196012",
+      "name": "Khoirul Anwar"
+    },
+    {
+      "type": "E-Wallet (DANA)",
+      "icon": "📱",
+      "bank": "DANA",
+      "number": "0895384947265",
+      "name": "khoirul anwar"
+    },
+    {
+      "type": "E-Wallet (OVO)",
+      "icon": "💳",
+      "bank": "OVO",
+      "number": "0895384947265",
+      "name": "khoirul anwar"
+    },
+    {
+      "type": "E-Wallet (GoPay)",
+      "icon": "🟢",
+      "bank": "GoPay",
+      "number": "0895384947265",
+      "name": "khoirul anwar"
+    },
+    {
+      "type": "Alamat Rumah",
+      "icon": "📍",
+      "bank": "",
+      "number": "Gg.Seruni No. 84, Ds.Pesucen Blok 4, Petarukan, Pemalang",
+      "name": "Rizza Lutfi Khasanah"
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-// GANTI dengan Measurement ID kamu
+// GANTI dengan Measurement ID asli kamu
 const GA_TRACKING_ID = 'G-H1JYV4M9YM';
 
 export default function Analytics() {
@@ -31,12 +31,9 @@ export default function Analytics() {
     `;
     document.head.appendChild(script2);
 
-    return () => {
-      // Cleanup tidak perlu karena script analytics sebaiknya tetap ada
-    };
   }, []);
 
-  // Track page views saat route berubah
+  // Track page views
   useEffect(() => {
     if (window.gtag && GA_TRACKING_ID !== 'G-H1JYV4M9YM') {
       window.gtag('config', GA_TRACKING_ID, {

@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "./themes/index.css";
 
+/* ============================================
+   GLOBAL UTILITY & RESPONSIVE FIXES
+   ============================================ */
+
 /* Animasi flip untuk countdown */
 @keyframes flip {
   0% {
@@ -16,4 +20,138 @@
 
 .animate-flip {
   animation: flip 0.3s ease-in-out;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Bounce slow untuk tombol musik */
+@keyframes bounce-slow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   RESPONSIVE FIXES
+   ============================================ */
+
+/* Mobile first: semua elemen sudah diatur untuk mobile,
+   tambahkan override untuk layar lebih besar */
+
+@media (min-width: 640px) {
+  .container-sm {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-md {
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-lg {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Fokus visible untuk keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip link (untuk keyboard user) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 0 0 8px 8px;
+  z-index: 1000;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ============================================
+   SCROLLBAR STYLING (opsional)
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--bg);
+}
+
+/* ============================================
+   UTILITY UNTUK TEXT WRAP & OVERFLOW
+   ============================================ */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.break-words {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ============================================
+   RESPONSIVE TYPOGRAPHY
+   ============================================ */
+
+/* Heading yang lebih kecil di mobile */
+@media (max-width: 640px) {
+  h1, .h1 {
+    font-size: 2rem !important;
+  }
+  h2, .h2 {
+    font-size: 1.75rem !important;
+  }
+  h3, .h3 {
+    font-size: 1.5rem !important;
+  }
+  h4, .h4 {
+    font-size: 1.25rem !important;
+  }
 }

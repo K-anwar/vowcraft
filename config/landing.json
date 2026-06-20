@@ -1,9 +1,11 @@
 {
   "slug": "landing",
-  "brandName": "Digital Wedding Invitation",
+  "brandName": "VowCraft",
   "tagline": "Undangan Pernikahan Digital Premium & Elegan",
   "description": "Buat undangan pernikahan digital yang elegan, interaktif, dan mudah dibagikan. Dilengkapi RSVP, QR check-in, galeri foto, musik, dan multi tema.",
   "heroImage": "https://images.unsplash.com/photo-1519741497674-611481863552?w=1200",
+  "brandLogo": "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781927180/wallpaper_bpguxm.png",
+  "brandFavicon": "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781927186/favicon_yvmc3j.png",
   "features": [
     {
       "icon": "💌",
@@ -124,8 +126,8 @@
   ],
   "contact": {
     "whatsapp": "62895384947265",
-    "instagram": "rizza_lutfi",
-    "email": "anwaralrasyd@gmail.com"
+    "instagram": "vowcraft",
+    "email": "hello@vowcraft.com"
   },
   "testimonials": [
     {

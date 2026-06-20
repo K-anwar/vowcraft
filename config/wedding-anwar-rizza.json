@@ -14,17 +14,17 @@
   "theme": "islami",
   "googleScriptUrl": "https://script.google.com/macros/s/AKfycbw-xIdmRE_oQjVFwpoUZ1M46AzNVaulW17apbjISXwIZKZ_5VFJoQXeoHDlOAwVrFkj/exec",
   "checkinScriptUrl": "",
-  "bridePhoto": "assets/anwar-rizza/photo/rizza.jpeg",
-  "groomPhoto": "assets/anwar-rizza/photo/anwar.jpeg",
+  "bridePhoto": "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926737/rizza_djuhz7.jpg",
+  "groomPhoto": "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926549/anwar_nslt66.jpg",
   "gallery": [
-    "assets/anwar-rizza/photo/gallery1.jpeg",
-    "assets/anwar-rizza/photo/gallery2.jpeg",
-    "assets/anwar-rizza/photo/gallery3.jpg",
-    "assets/anwar-rizza/photo/gallery4.jpg",
-    "assets/anwar-rizza/photo/gallery5.jpg",
-    "assets/anwar-rizza/photo/gallery6.jpg"
+    "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926580/gallery1_ylrtoo.jpg",
+    "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926609/gallery2_prkguy.jpg",
+    "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926681/gallery3_esgm0r.jpg",
+    "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926697/gallery4_bowjdy.jpg",
+    "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926712/gallery5_ckb0ga.jpg",
+    "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926726/gallery6_nw5e54.jpg"
   ],
-  "music": "assets/anwar-rizza/music/music.mp3",
+  "music": "https://res.cloudinary.com/dsmj2ml0m/video/upload/v1781926861/music_s1dal8.mp3",
   "envelopeSound": "",
   "dressCode": {
     "color": "Navy Blue & Dusty Pink",
@@ -61,7 +61,7 @@
     {
       "type": "Transfer Bank",
       "icon": "🏦",
-      "logo": "assets/logos/bca.svg",
+      "logo": "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926923/bca_trz3d6.svg",
       "bank": "Bank BCA",
       "number": "3540196012",
       "name": "Khoirul Anwar"
@@ -69,7 +69,7 @@
     {
       "type": "Transfer Bank",
       "icon": "🏦",
-      "logo": "assets/logos/bri.svg",
+      "logo": "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926927/bri_dqpnwy.svg",
       "bank": "Bank BRI",
       "number": "379301051428538",
       "name": "Rizza Lutfi Khasanah"
@@ -77,7 +77,7 @@
     {
       "type": "Transfer Bank",
       "icon": "🏦",
-      "logo": "assets/logos/mandiri.svg",
+      "logo": "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926946/mandiri_bygb4s.svg",
       "bank": "Bank Mandiri",
       "number": "1360031676460",
       "name": "Rizza Lutfi Khasanah"
@@ -85,7 +85,7 @@
     {
       "type": "E-Wallet",
       "icon": "🟢",
-      "logo": "assets/logos/gopay.svg",
+      "logo": "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926942/gopay_locp1s.svg",
       "bank": "GoPay",
       "number": "0895384947265",
       "name": "khoirul anwar"
@@ -93,7 +93,7 @@
     {
       "type": "E-Wallet",
       "icon": "🟢",
-      "logo": "assets/logos/ovo.svg",
+      "logo": "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926951/ovo_fwoicw.svg",
       "bank": "OVO",
       "number": "0895384947265",
       "name": "khoirul anwar"
@@ -101,7 +101,7 @@
     {
       "type": "E-Wallet",
       "icon": "🟢",
-      "logo": "assets/logos/linkaja.svg",
+      "logo": "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926944/linkaja_dsmltg.svg",
       "bank": "LinkAja",
       "number": "0895384947265",
       "name": "khoirul anwar"
@@ -109,7 +109,7 @@
     {
       "type": "E-Wallet",
       "icon": "🟢",
-      "logo": "assets/logos/dana.svg",
+      "logo": "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926937/dana_ad2xnk.svg",
       "bank": "Dana",
       "number": "0895384947265",
       "name": "khoirul anwar"
@@ -117,7 +117,7 @@
     {
       "type": "E-Wallet",
       "icon": "🟢",
-      "logo": "assets/logos/spay.svg",
+      "logo": "https://res.cloudinary.com/dsmj2ml0m/image/upload/v1781926920/spay_nuv5ly.svg",
       "bank": "ShopeePay",
       "number": "0895384947265",
       "name": "khoirul anwar"

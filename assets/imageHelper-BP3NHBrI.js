@@ -1,0 +1,1 @@
+function t(t,a){return t?t.startsWith("http://")||t.startsWith("https://")?t:`${a||"/vowcraft/"}${t.replace(/^\.\//,"").replace(/^\//,"")}`:""}function a(a,r){return a&&0!==a.length?a.map(a=>t(a,r)):[]}function r(t,a=200,r=200){return t?t.includes("cloudinary.com")?t.replace("/upload/",`/upload/w_${a},h_${r},c_fill,q_auto,f_auto/`):t:""}export{a as n,t as r,r as t};

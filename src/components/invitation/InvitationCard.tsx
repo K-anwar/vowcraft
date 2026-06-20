@@ -10,45 +10,72 @@ interface InvitationCardProps {
 export default function InvitationCard({ config, guest }: InvitationCardProps) {
   const baseUrl = import.meta.env.BASE_URL || '/';
 
+  // AMAN: gunakan fallback jika foto tidak ada
   const bridePhotoUrl = useMemo(() => {
-    if (!config.bridePhoto) return '';
-    const url = getMediaUrl(config.bridePhoto, baseUrl);
-    return getCloudinaryThumbnail(url, 300, 300);
-  }, [config.bridePhoto, baseUrl]);
+    if (!config?.bridePhoto) return '';
+    try {
+      const url = getMediaUrl(config.bridePhoto, baseUrl);
+      return getCloudinaryThumbnail(url, 300, 300);
+    } catch {
+      return '';
+    }
+  }, [config?.bridePhoto, baseUrl]);
 
   const groomPhotoUrl = useMemo(() => {
-    if (!config.groomPhoto) return '';
-    const url = getMediaUrl(config.groomPhoto, baseUrl);
-    return getCloudinaryThumbnail(url, 300, 300);
-  }, [config.groomPhoto, baseUrl]);
+    if (!config?.groomPhoto) return '';
+    try {
+      const url = getMediaUrl(config.groomPhoto, baseUrl);
+      return getCloudinaryThumbnail(url, 300, 300);
+    } catch {
+      return '';
+    }
+  }, [config?.groomPhoto, baseUrl]);
 
-  // Helper format tanggal
-  const formatDate = (dateStr: string) => {
+  // AMAN: format tanggal dengan fallback
+  const formatDate = (dateStr?: string) => {
     if (!dateStr) return '';
-    const date = new Date(dateStr);
-    if (isNaN(date.getTime())) return dateStr;
-    return date.toLocaleDateString('id-ID', {
-      weekday: 'long',
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    });
+    try {
+      const date = new Date(dateStr);
+      if (isNaN(date.getTime())) return dateStr;
+      return date.toLocaleDateString('id-ID', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+      });
+    } catch {
+      return dateStr || '';
+    }
   };
 
-  const formatTime = (dateStr: string) => {
+  const formatTime = (dateStr?: string) => {
     if (!dateStr) return '';
-    const date = new Date(dateStr);
-    if (isNaN(date.getTime())) return '';
-    return date.toLocaleTimeString('id-ID', {
-      hour: '2-digit',
-      minute: '2-digit',
-    });
+    try {
+      const date = new Date(dateStr);
+      if (isNaN(date.getTime())) return '';
+      return date.toLocaleTimeString('id-ID', {
+        hour: '2-digit',
+        minute: '2-digit',
+      });
+    } catch {
+      return '';
+    }
   };
 
-  const akadDate = config.akadDate || config.eventDate;
-  const resepsiDate = config.resepsiDate || config.eventDate;
-  const isAkadDifferent = config.akadDate && config.akadDate !== config.eventDate;
-  const isResepsiDifferent = config.resepsiDate && config.resepsiDate !== config.eventDate;
+  // AMAN: gunakan fallback jika akadDate/resepsiDate tidak ada
+  const akadDate = config?.akadDate || config?.eventDate || '';
+  const resepsiDate = config?.resepsiDate || config?.eventDate || '';
+  const isAkadDifferent = config?.akadDate && config?.akadDate !== config?.eventDate;
+  const isResepsiDifferent = config?.resepsiDate && config?.resepsiDate !== config?.eventDate;
+
+  // Jika tidak ada data, tampilkan pesan minimal
+  if (!config) {
+    return (
+      <div className="p-6 text-center text-gray-500">
+        <p>Data undangan tidak tersedia</p>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -75,10 +102,13 @@ export default function InvitationCard({ config, guest }: InvitationCardProps) {
             >
               <img
                 src={bridePhotoUrl}
-                alt={config.bride}
+                alt={config.bride || 'Pengantin Wanita'}
                 className="w-full h-full object-cover"
                 loading="lazy"
-                onError={(e) => (e.currentTarget.style.display = 'none')}
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  console.warn('Foto pengantin wanita gagal dimuat');
+                }}
               />
             </div>
           )}
@@ -93,10 +123,13 @@ export default function InvitationCard({ config, guest }: InvitationCardProps) {
             >
               <img
                 src={groomPhotoUrl}
-                alt={config.groom}
+                alt={config.groom || 'Pengantin Pria'}
                 className="w-full h-full object-cover"
                 loading="lazy"
-                onError={(e) => (e.currentTarget.style.display = 'none')}
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  console.warn('Foto pengantin pria gagal dimuat');
+                }}
               />
             </div>
           )}
@@ -107,14 +140,14 @@ export default function InvitationCard({ config, guest }: InvitationCardProps) {
         className="text-3xl md:text-5xl lg:text-7xl font-bold my-4 md:my-6 gradient-text text-balance"
         style={{ fontFamily: 'var(--font-title)' }}
       >
-        {config.bride} <span className="text-2xl md:text-4xl" style={{ color: 'var(--primary)' }}>&</span> {config.groom}
+        {config.bride || 'Pengantin Wanita'} <span className="text-2xl md:text-4xl" style={{ color: 'var(--primary)' }}>&</span> {config.groom || 'Pengantin Pria'}
       </h1>
 
       <p className="italic text-base md:text-lg mb-2" style={{ color: 'var(--text-soft)' }}>
         Kepada Yth.
       </p>
       <p className="text-lg md:text-xl font-semibold mb-6 md:mb-8 wrap-break-word" style={{ color: 'var(--primary-dark)' }}>
-        {guest}
+        {guest || 'Tamu Undangan'}
       </p>
 
       <hr className="premium-divider" />
@@ -156,21 +189,22 @@ export default function InvitationCard({ config, guest }: InvitationCardProps) {
           )}
         </div>
 
+        {/* Lokasi */}
         <div className="sm:col-span-2 text-center pt-2 border-t" style={{ borderColor: 'var(--border-color)' }}>
           <p className="text-xs uppercase tracking-widest mb-2" style={{ color: 'var(--accent)' }}>
             Lokasi
           </p>
           <p className="font-bold text-base md:text-lg" style={{ color: 'var(--text)' }}>
-            {config.location}
+            {config.location || 'Lokasi belum ditentukan'}
           </p>
           <p className="text-sm mt-1 wrap-break-word" style={{ color: 'var(--text-soft)' }}>
-            {config.address}
+            {config.address || 'Alamat belum diisi'}
           </p>
         </div>
       </div>
 
       <a
-        href={config.mapsUrl}
+        href={config.mapsUrl || '#'}
         target="_blank"
         rel="noreferrer"
         className="inline-block mt-6 md:mt-8 text-sm font-medium hover:opacity-70 transition"

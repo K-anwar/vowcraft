@@ -6,17 +6,20 @@ const configCache = new Map<string, WeddingConfig>();
 const fetchWithRetry = async (
   url: string,
   signal?: AbortSignal,
-  retries = 2,
+  retries = 3,
   delay = 1000
 ): Promise<Response> => {
   let lastError: Error | null = null;
   for (let i = 0; i < retries; i++) {
     try {
+      console.log(`📡 Fetch attempt ${i + 1}/${retries}:`, url);
       const res = await fetch(url, { signal });
       if (!res.ok) throw new Error(`HTTP ${res.status} - ${res.statusText}`);
+      console.log(`📡 Fetch success!`);
       return res;
     } catch (err) {
       lastError = err instanceof Error ? err : new Error(String(err));
+      console.warn(`📡 Fetch attempt ${i + 1} failed:`, lastError.message);
       if (i === retries - 1) break;
       await new Promise((resolve) => setTimeout(resolve, delay * (i + 1)));
     }
@@ -48,9 +51,12 @@ export default function useCustomerConfig(slug: string): UseCustomerConfigResult
       return;
     }
 
+    console.log(`📡 loadConfig - slug: ${slug}, forceRefresh: ${forceRefresh}`);
+
     if (!forceRefresh) {
       const cached = configCache.get(slug);
       if (cached) {
+        console.log('📡 Cache hit!');
         setConfig(cached);
         setLoading(false);
         setError(null);
@@ -65,18 +71,19 @@ export default function useCustomerConfig(slug: string): UseCustomerConfigResult
     abortControllerRef.current = controller;
 
     const baseUrl = import.meta.env.BASE_URL || '/';
+    console.log('📡 BASE_URL:', baseUrl);
 
     setLoading(true);
     setError(null);
 
     try {
-      const response = await fetchWithRetry(
-        `${baseUrl}config/${slug}.json?t=${Date.now()}`,
-        controller.signal,
-        2,
-        1000
-      );
+      const url = `${baseUrl}config/${slug}.json?t=${Date.now()}`;
+      console.log('📡 Fetching:', url);
+
+      const response = await fetchWithRetry(url, controller.signal, 3, 1000);
       const data = (await response.json()) as WeddingConfig;
+
+      console.log('📡 Data received:', data);
 
       if (!data.bride || !data.groom || !data.eventDate) {
         throw new Error('Konfigurasi tidak lengkap');
@@ -85,16 +92,20 @@ export default function useCustomerConfig(slug: string): UseCustomerConfigResult
       configCache.set(slug, data);
       setConfig(data);
       document.documentElement.setAttribute('data-theme', data.theme || 'romantic');
-      // Layout akan di-set oleh LayoutSelector
       document.title = `Undangan ${data.bride} & ${data.groom}`;
       retryCountRef.current = 0;
     } catch (err) {
-      if (err instanceof Error && err.name === 'AbortError') return;
+      if (err instanceof Error && err.name === 'AbortError') {
+        console.log('📡 Request aborted');
+        return;
+      }
       const message = err instanceof Error ? err.message : 'Gagal memuat undangan';
+      console.error('📡 Error:', message);
       setError(message);
       
       if (retryCountRef.current < 2) {
         retryCountRef.current++;
+        console.log(`📡 Auto-retry ${retryCountRef.current}/2...`);
         setTimeout(() => loadConfig(true), 2000);
       }
     } finally {
@@ -118,6 +129,7 @@ export default function useCustomerConfig(slug: string): UseCustomerConfigResult
   }, [slug]);
 
   const retry = () => {
+    console.log('📡 Manual retry triggered');
     retryCountRef.current = 0;
     loadConfig(true);
   };
